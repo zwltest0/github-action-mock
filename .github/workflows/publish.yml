@@ -45,4 +45,4 @@ jobs:
           echo "$DIST_TAG"
           lerna version $RELEASE_VERSION --exact --force-publish --yes --no-push
           lerna publish from-package --dist-tag $DIST_TAG --yes
-          git push -o ci.skip --follow-tags --no-verify --atomic
+          git push -o --follow-tags --no-verify --atomic
