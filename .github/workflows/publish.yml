@@ -20,11 +20,10 @@ jobs:
         run: npm ci
 
       - name: get version list
-        run: echo "VERSION_LIST="$(npm view zwltest-package1 versions --json)"" >> $GITHUB_ENV
-        # env:
-        #     RELEASE_TYPE: ${{ github.event.inputs.release_type }}
-      #${{ github.event.inputs.release_type }}
-        # run: echo "RELEASE_TYPE=$(npx semver 1.30.0 -i patch)" >> $GITHUB_ENV
+        run: |
+          PKG_NAME=github-action-mock-publish-main-package
+          echo "VERSION_LIST="$(npm view $PKG_NAME versions --json)"" >> $GITHUB_ENV
+        
 
       - name: get version
         run: echo "RELEASE_VERSION="$(node script/version.js)"" >> $GITHUB_ENV
