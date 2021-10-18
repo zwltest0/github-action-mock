@@ -15,7 +15,7 @@ jobs:
           node-version: 14
       - run: |
             npm install
-            npm run release
+            node script/release.js
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             CHANGELOG_PATH: changelog/index.md, changelog/index-en-US.md
