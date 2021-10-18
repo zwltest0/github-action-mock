@@ -37,7 +37,12 @@ jobs:
           npm config set registry=https://registry.npmjs.org/
           npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
           npm whoami
+          DIST_TAG=latest
+          if [ $RELEASE_TYPE == 'beta' ]; then
+            DIST_TAG=beta
+          fi
           echo "$RELEASE_VERSION"
+          echo "$DIST_TAG"
           lerna version $RELEASE_VERSION --exact --force-publish --yes --no-push
-          lerna publish from-package --dist-tag --yes
-          git push -o ci.skip --follow-tags --no-verify --atomic
+          lerna publish from-package --dist-tag $DIST_TAG --yes
+          git push -o --follow-tags --no-verify --atomic
