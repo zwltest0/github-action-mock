@@ -1,6 +1,9 @@
 {
   "name": "github-action-mock",
   "private": true,
+  "scripts": {
+    "build": "mkdir -p public && echo 'hello world' > public/index.html"
+  },
   "devDependencies": {
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0",
