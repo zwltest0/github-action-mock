@@ -2,7 +2,7 @@
   "name": "github-action-mock",
   "private": true,
   "scripts": {
-    "build": "mkdir -p public && echo 'hello world' > public/index.html"
+    "build": "mkdir -p public && cat lerna.json | python -c 'import json,sys;obj=json.load(sys.stdin);print obj[\"version\"]' > public/index.html"
   },
   "devDependencies": {
     "@actions/core": "^1.6.0",
