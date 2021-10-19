@@ -51,6 +51,7 @@ async function main() {
             tag_name: version,
             name: version,
             body: versionChangelog,
+            prerelease: version.includes('beta'),
         });
         info(`${version} released`)
     } catch (err) {
