@@ -41,11 +41,6 @@ jobs:
           if [ $RELEASE_TYPE == 'beta' ]; then
             DIST_TAG=beta
           fi
-          BRANCH_NAME=main
-          if [ $RELEASE_TYPE == 'beta' ]; then
-            BRANCH_NAME=beta
-          fi
-          git checkout beta
           echo "$RELEASE_VERSION"
           echo "$DIST_TAG"
           lerna version $RELEASE_VERSION --exact --force-publish --yes --no-push
