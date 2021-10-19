@@ -2,12 +2,14 @@
   "name": "github-action-mock",
   "private": true,
   "scripts": {
-    "build": "mkdir -p public && cat lerna.json | python -c 'import json,sys;obj=json.load(sys.stdin);print obj[\"version\"]' > public/index.html"
+    "build": "mkdir -p public && cat lerna.json | python -c 'import json,sys;obj=json.load(sys.stdin);print obj[\"version\"]' > public/index.html",
+    "test": "jest"
   },
   "devDependencies": {
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0",
     "@octokit/rest": "^18.12.0",
+    "jest": "^27.3.1",
     "lerna": "^4.0.0",
     "lodash": "^4.17.21",
     "semver": "^7.3.5"
